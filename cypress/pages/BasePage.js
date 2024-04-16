@@ -53,4 +53,92 @@
     }    
 }
 
+class GaragePage extends BasePage {
+
+    headerElm = {
+        
+        garageHeadBtn: () => {
+            cy.get('a.btn.header-link[routerlink="/panel/garage"]');
+        },
+    
+        expensesHeadBtn: () => {
+            cy.get('a.btn.header-link[routerlink="/panel/expenses"]');
+        },
+    
+        instructionsHeadBtn: () => {
+            cy.get('a.btn.header-link[routerlink="/panel/instructions"]');
+        },
+    
+        myHeadProfileBtn: () => {
+            cy.get('button#userNavDropdown');
+        },
+        //header drop-down
+        garageDropBtn: () => {
+            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/garage"]');
+        },
+    
+        expensesDropBtn: () => {
+            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/expenses"]');
+        },
+    
+        instructionsDropBtn: () => {
+            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/instructions"]');
+        },
+    
+        profileDropBtn: () => {
+            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/profile"]');
+        },
+    
+        settingsDropBtn: () => {
+            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/settingss"]')
+        },
+    
+        logOutDropBtn: () => {
+            cy.get('button.dropdown-item.btn.btn-link.user-nav_link')
+        },
+    
+    }
+        
+    sidePanelElm = {
+    
+        garageBtn: () => { 
+             cy.get('a[routerlink="garage"]');
+        },
+        
+        expensesBtn: () => {
+             cy.get('a[routerlink="expenses"]');
+        },
+        
+        instructionsBtn: () => {
+             cy.get('a[routerlink="instructions"]');
+        },
+        
+        profBtnSide: () => {
+             cy.get('a[routerlink="profile"]');
+        },
+        
+        settingsBtn: () => {
+             cy.get('a[routerlink="settings"]');
+        }, 
+        
+        logOutBtn: () => {
+            cy.get('a.btn.btn-link.text-danger.btn-sidebar.sidebar_btn');
+        }    
+    }
+    
+    footerElm = {
+        firstText: () => {
+            cy.get('.col-7.d-flex.flex-column.justify-content-center.footer_item.-left p:first-of-type')
+        },
+    
+        secondText: () => {
+            cy.get('.col-7.d-flex.flex-column.justify-content-center.footer_item.-left p:nth-of-type(2)')
+        },
+    
+        footerLogo: () => {
+            cy.get('a.footer_logo[href="/"]')
+        }
+    }    
+    }
+
 export const basePage = new BasePage();
