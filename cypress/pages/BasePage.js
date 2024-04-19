@@ -1,100 +1,114 @@
- class BasePage {
+export class BasePage {
+
+    signInBtn(){
+        return cy.xpath('//button[@class="btn btn-outline-white header_signin"]');
+    }
+
+    inputSignInEmail(){
+        return cy.xpath('//input[@id="signinEmail"]');
+    }
+
+    inputSignInPassword(){
+        return cy.xpath('//input[@id="signinPassword"]');
+    }
+
+    loginBtn(){
+        return cy.xpath('//div[@class="modal-footer d-flex justify-content-between"]/child::button[@class="btn btn-primary"]');
+    }
    
-    signInButton(){
+    signUpBtn(){
         return cy.xpath('//button[@class="hero-descriptor_btn btn btn-primary"]');
     }
 
-    signupName(){
+    inputSignupName(){
         return cy.xpath('//input[@id="signupName"]');
     }
 
-    signupLastName(){
+    inputSignupLastName(){
         return cy.xpath('//input[@id="signupLastName"]');
     }
 
-    signupEmail(){
+    inputSignupEmail(){
         return cy.xpath('//input[@id="signupEmail"]');
     }
 
-    signupPassword(){
+    inputSignupPassword(){
         return cy.xpath('//input[@id="signupPassword"]');
     }
     
-    signupRepeatPassword(){
+    inputSignupRepeatPassword(){
         return cy.xpath('//input[@id="signupRepeatPassword"]');
     }
 
     registerButton(){
         return cy.xpath('//button[@class="btn btn-primary"]');
     }
+    
+    profBtnSide(){
+        return cy.xpath('//a[@class="btn btn-white btn-sidebar sidebar_btn -profile"]');
+    }
+
+    garageUserName(){
+        return cy.xpath('//p[@class="profile_name display-4"]');
+    }
 
     generateAccount(signInCreds){
-        this.signInButton().click();
-        this.signupName().type(signInCreds.name).should('have.value', signInCreds.name);
-        this.signupLastName().type(signInCreds.lastname).should('have.value', signInCreds.lastname);
-        this.signupEmail().type(signInCreds.email).should('have.value', signInCreds.email);
-        this.signupPassword().type(signInCreds.pass).should('have.value', signInCreds.pass);
-        this.signupRepeatPassword().type(signInCreds.pass).should('have.value', signInCreds.pass);  
-    }
 
-    profBtnSide(){
-        return cy.xpath('//a[@class="btn btn-white btn-sidebar sidebar_btn -profile"]')
-    }
-
-    userName(){
-        return cy.xpath('//p[@class="profile_name display-4"]')
-    }
-
-    garageCheck(){
+        this.signUpBtn().click();
+        this.inputSignupName().type(signInCreds.name).should('have.value', signInCreds.name);
+        this.inputSignupLastName().type(signInCreds.lastname).should('have.value', signInCreds.lastname);
+        this.inputSignupEmail().type(signInCreds.email).should('have.value', signInCreds.email);
+        this.inputSignupPassword().type(signInCreds.password).should('have.value', signInCreds.password);
+        this.inputSignupRepeatPassword().type(signInCreds.password).should('have.value', signInCreds.password); 
         this.registerButton().click();
         cy.url().should('eq', 'https://qauto2.forstudy.space/panel/garage');
-        this.profBtnSide().click();
-        this.userName().should('have.text', 'Some New');
-    }    
+        garagePageBase.sidePanelElm.logOutBtn().click()
+
+    }  
 }
 
-class GaragePage extends BasePage {
+export class GaragePage extends BasePage {
 
     headerElm = {
         
         garageHeadBtn: () => {
-            cy.get('a.btn.header-link[routerlink="/panel/garage"]');
+            return cy.get('a.btn.header-link[routerlink="/panel/garage"]');
         },
     
         expensesHeadBtn: () => {
-            cy.get('a.btn.header-link[routerlink="/panel/expenses"]');
+            return cy.get('a.btn.header-link[routerlink="/panel/expenses"]');
         },
     
         instructionsHeadBtn: () => {
-            cy.get('a.btn.header-link[routerlink="/panel/instructions"]');
+            return cy.get('a.btn.header-link[routerlink="/panel/instructions"]');
         },
     
         myHeadProfileBtn: () => {
-            cy.get('button#userNavDropdown');
+            return cy.get('button#userNavDropdown');
         },
         //header drop-down
         garageDropBtn: () => {
-            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/garage"]');
+            return cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/garage"]');
         },
     
         expensesDropBtn: () => {
-            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/expenses"]');
+            return cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/expenses"]');
         },
     
         instructionsDropBtn: () => {
-            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/instructions"]');
+            return cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/instructions"]');
         },
     
         profileDropBtn: () => {
-            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/profile"]');
+            return cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/profile"]');
         },
     
         settingsDropBtn: () => {
-            cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/settingss"]')
+            return cy.get('a.dropdown-item.btn.btn-link.user-nav_link[href="/panel/settingss"]');
         },
     
         logOutDropBtn: () => {
-            cy.get('button.dropdown-item.btn.btn-link.user-nav_link')
+            return cy.get('button.dropdown-item.btn.btn-link.user-nav_link');
         },
     
     }
@@ -102,43 +116,49 @@ class GaragePage extends BasePage {
     sidePanelElm = {
     
         garageBtn: () => { 
-             cy.get('a[routerlink="garage"]');
+            return cy.get('a[routerlink="garage"]');
         },
         
         expensesBtn: () => {
-             cy.get('a[routerlink="expenses"]');
+            return cy.get('a[routerlink="expenses"][href="/panel/expenses"]');
         },
         
         instructionsBtn: () => {
-             cy.get('a[routerlink="instructions"]');
+            return cy.get('a[routerlink="instructions"]');
         },
         
         profBtnSide: () => {
-             cy.get('a[routerlink="profile"]');
+            return cy.get('a[routerlink="profile"]');
         },
         
         settingsBtn: () => {
-             cy.get('a[routerlink="settings"]');
+            return cy.get('a[routerlink="settings"]');
         }, 
-        
+
         logOutBtn: () => {
-            cy.get('a.btn.btn-link.text-danger.btn-sidebar.sidebar_btn');
-        }    
+            return cy.get('a.btn.btn-link.text-danger.btn-sidebar.sidebar_btn');
+        }, 
+
+        removeAccBtn: () => {
+            return cy.get('button.btn.btn-danger-bg');
+        }
+           
     }
     
     footerElm = {
         firstText: () => {
-            cy.get('.col-7.d-flex.flex-column.justify-content-center.footer_item.-left p:first-of-type')
+            return cy.get('.col-7.d-flex.flex-column.justify-content-center.footer_item.-left p:first-of-type');
         },
     
         secondText: () => {
-            cy.get('.col-7.d-flex.flex-column.justify-content-center.footer_item.-left p:nth-of-type(2)')
+            return cy.get('.col-7.d-flex.flex-column.justify-content-center.footer_item.-left p:nth-of-type(2)');
         },
     
         footerLogo: () => {
-            cy.get('a.footer_logo[href="/"]')
+            return cy.get('a.footer_logo[href="/"]');
         }
     }    
     }
 
 export const basePage = new BasePage();
+export const garagePageBase = new GaragePage();
