@@ -1,3 +1,6 @@
+import { userDataObj } from "../data/constant/userData";
+import { toolsUtil } from "../Tools/all";
+
 export class BasePage {
 
     signInBtn(){
@@ -52,14 +55,14 @@ export class BasePage {
         return cy.xpath('//p[@class="profile_name display-4"]');
     }
 
-    generateAccount(signInCreds){
+    generateAccount(){
 
         this.signUpBtn().click();
-        this.inputSignupName().type(signInCreds.name).should('have.value', signInCreds.name);
-        this.inputSignupLastName().type(signInCreds.lastname).should('have.value', signInCreds.lastname);
-        this.inputSignupEmail().type(signInCreds.email).should('have.value', signInCreds.email);
-        this.inputSignupPassword().type(signInCreds.password).should('have.value', signInCreds.password);
-        this.inputSignupRepeatPassword().type(signInCreds.password).should('have.value', signInCreds.password); 
+        this.inputSignupName().type(userDataObj.name).should('have.value', userDataObj.name);
+        this.inputSignupLastName().type(userDataObj.lastname).should('have.value', userDataObj.lastname);
+        this.inputSignupEmail().type(toolsUtil.rndEmail).should('have.value', toolsUtil.rndEmail);
+        this.inputSignupPassword().type(toolsUtil.rndPassword).should('have.value', toolsUtil.rndPassword);
+        this.inputSignupRepeatPassword().type(toolsUtil.rndPassword).should('have.value', toolsUtil.rndPassword); 
         this.registerButton().click();
         cy.url().should('eq', 'https://qauto2.forstudy.space/panel/garage');
         garagePageBase.sidePanelElm.logOutBtn().click()
@@ -157,8 +160,8 @@ export class GaragePage extends BasePage {
         footerLogo: () => {
             return cy.get('a.footer_logo[href="/"]');
         }
-    }    
-    }
+    }   
+}
 
 export const basePage = new BasePage();
 export const garagePageBase = new GaragePage();
