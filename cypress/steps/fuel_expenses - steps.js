@@ -4,7 +4,7 @@ import { GeneralSteps } from "./general-steps";
 
 
 
-class FuelExpenses extends GeneralSteps{
+class FuelExpensesSteps extends GeneralSteps{
 
     addFuelExp(){
 
@@ -37,4 +37,4 @@ class FuelExpenses extends GeneralSteps{
     }
 }
 
-export const fuelExpanses = new FuelExpenses();
+export const fuelExpansesStep = new FuelExpensesSteps();

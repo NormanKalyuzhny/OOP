@@ -32,6 +32,10 @@ sidePanelElm = {
         return cy.get('.modal-footer.d-flex.justify-content-end .btn.btn-primary');
     },
 
+    textEmptyCar: () => {
+        return cy.get('p.h3.panel-empty_message');
+    },
+
     //Added car block
     mileageUpdateInput : () => {
         return cy.get('input[formcontrolname="miles"]');
@@ -39,6 +43,14 @@ sidePanelElm = {
 
     mileageUpdateBtn : () => {
         return cy.get('button.update-mileage-form_submit.btn.btn-secondary.btn-sm');
+    },
+
+    inputMileageField : () => {
+        return cy.get('input[name="miles"]');
+    },
+
+    carName : () => {
+        return cy.get('app-garage .car_name.h2');
     },
 
     editCarBtn : () => {
@@ -92,6 +104,12 @@ sidePanelElm = {
         return cy.get('div .modal-content button.btn.btn-danger')
     }
 }
+
+car = {
+    brand: 'Ford',
+    model: 'Fusion',
+    mileage: '100',
+ }
 }
 
 export const garagePage = new GaragePage();

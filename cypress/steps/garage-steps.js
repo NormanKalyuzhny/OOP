@@ -12,8 +12,8 @@ class GarageSteps extends GeneralSteps{
     };
 
     checkNewCarAdded(car){
-        cy.get('app-garage .car_name.h2').should('have.text', car.brand + " " + car.model);
-        cy.get('input[name="miles"]').should('have.value', car.mileage);
+        garagePage.sidePanelElm.carName().should('have.text', car.brand + " " + car.model);
+        garagePage.sidePanelElm.inputMileageField().should('have.value', car.mileage);
     };
 
     deleteNewCar(){
@@ -23,7 +23,7 @@ class GarageSteps extends GeneralSteps{
     };
 
     checkNewCarDeleted(){
-        cy.get('p.h3.panel-empty_message').should('have.text','You don’t have any cars in your garage');
+        garagePage.sidePanelElm.textEmptyCar().should('have.text','You don’t have any cars in your garage');
     };
 };
 
