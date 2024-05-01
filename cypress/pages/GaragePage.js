@@ -45,6 +45,10 @@ sidePanelElm = {
         return cy.get('button.update-mileage-form_submit.btn.btn-secondary.btn-sm');
     },
 
+    mileageInputField : () => {
+        return cy.get('.update-mileage-form_input[name="miles"]')
+    },
+ 
     inputMileageField : () => {
         return cy.get('input[name="miles"]');
     },
@@ -72,6 +76,10 @@ sidePanelElm = {
         datePickerBtn : () => {
             return cy.get('button.btn.date-picker-toggle') ;
         },
+
+    editExpBtn : () => {
+        return cy.get('button.btn.btn-edit');
+    },
 
     addFuelExpenseBtn : () => {
         return cy.get('button.car_add-expense.btn.btn-success'); 
@@ -108,7 +116,7 @@ sidePanelElm = {
 car = {
     brand: 'Ford',
     model: 'Fusion',
-    mileage: '100',
+    mileage: 100,
  }
 }
 

@@ -24,6 +24,25 @@ class Tools {
     
     rndPassword = this.genRndPassword(8);
 
+
+    currentDateFormat = () => {
+        const getDate = new Date()
+        const option = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        };
+        const currentDate = getDate.toLocaleDateString(option)
+        const dateParts = currentDate.split('.')
+        const day = dateParts[0];
+        const month = dateParts[1];
+        const year = dateParts[2];
+        const outputDate = `${year}-${month}-${day}`;
+
+        return outputDate
+     }
+    
+
 }
 
 export const toolsUtil = new Tools();
