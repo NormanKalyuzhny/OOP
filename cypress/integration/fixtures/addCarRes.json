@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "data": {
+    "id": 119214,
+    "carBrandId": 3,
+    "carModelId": 13,
+    "initialMileage": 100,
+    "updatedMileageAt": "2024-05-03T11:32:10.031Z",
+    "carCreatedAt": "2024-05-03T11:32:10.031Z",
+    "mileage": 100,
+    "brand": "Ford",
+    "model": "Fusion",
+    "logo": "ford.png"
+  }
+}
