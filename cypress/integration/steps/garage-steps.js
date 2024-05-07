@@ -1,19 +1,21 @@
 import { garagePage } from "../pages/GaragePage";
 import { GeneralSteps } from "./general-steps";
+import { toolsUtil } from "../Tools/all";
 
 class GarageSteps extends GeneralSteps{
 
-    addNewCar(car){
-        garagePage.sidePanelElm.garageAddCarBtn().click();
-        garagePage.sidePanelElm.carBrand().select(car.brand);
-        garagePage.sidePanelElm.carModel().select(car.model);
-        garagePage.sidePanelElm.carMileage().type(car.mileage);
+    addNewCar(){
+        garagePage.sidePanelElm.garageAddCarBtn().click()
+        cy.log('RND Car brand/model is: ',toolsUtil.rndCar.brand, toolsUtil.rndCar.model)
+        garagePage.sidePanelElm.carBrand().select(toolsUtil.rndCar.brand);   
+        garagePage.sidePanelElm.carModel().select(toolsUtil.rndCar.model);
+        garagePage.sidePanelElm.carMileage().type(toolsUtil.rndDigits);
         garagePage.sidePanelElm.addBtn().click();
     };
 
-    checkNewCarAdded(car){
-        garagePage.sidePanelElm.carName().should('have.text', car.brand + " " + car.model);
-        garagePage.sidePanelElm.inputMileageField().should('have.value', car.mileage);
+    checkNewCarAdded(){
+        garagePage.sidePanelElm.carName().should('have.text', toolsUtil.rndCar.brand + " " + toolsUtil.rndCar.model);
+        garagePage.sidePanelElm.inputMileageField().should('have.value', toolsUtil.rndDigits);
     };
 
     deleteNewCar(){

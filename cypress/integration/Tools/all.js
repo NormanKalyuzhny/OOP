@@ -1,4 +1,5 @@
 import { userDataObj } from "../data/constant/userData";
+import { carData } from "../data/constant/carData";
 
 class Tools {
 
@@ -7,15 +8,15 @@ class Tools {
     };
     
     genRndPassword = (length) => {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-='; 
+        const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-='; 
  
-    let password = '';
-    for (let i = 0; i < length; i++) {
-        const rndIndex = Math.floor(Math.random() * chars.length);
-        password += chars[rndIndex];
-    }
+        let password = '';
+        for (let i = 0; i < length; i++) {
+            const rndIndex = Math.floor(Math.random() * chars.length);
+            password += chars[rndIndex];
+        }
  
-    return password;
+        return password;
     };
 
     rndDigits = this.genRndNumbers(1,1000);
@@ -23,7 +24,6 @@ class Tools {
     rndEmail = `${userDataObj.name}.${userDataObj.lastname}+${this.rndDigits}@guglo.com`;
     
     rndPassword = this.genRndPassword(8);
-
 
     currentDateFormat = () => {
         const getDate = new Date()
@@ -42,7 +42,21 @@ class Tools {
         return outputDate
      }
     
-
+    rndCarGen = () => {
+        const rndBrandIndex = Math.floor(Math.random() * carData.carBrands.length)
+        const rndBrand = carData.carBrands[rndBrandIndex]
+        //console.log(rndBrand)
+        const models = carData.carModels[rndBrand]
+        //console.log(models)
+    
+        const rndModelIndex = Math.floor(Math.random() * models.length)
+        const rndModels = models[rndModelIndex] 
+        //console.log(rndModels)
+    
+        return {brand:rndBrand, model:rndModels}
+    };
+    
+    rndCar = this.rndCarGen();
 }
 
 export const toolsUtil = new Tools();

@@ -112,12 +112,6 @@ sidePanelElm = {
         return cy.get('div .modal-content button.btn.btn-danger')
     }
 }
-
-car = {
-    brand: 'Ford',
-    model: 'Fusion',
-    mileage: 100,
- }
 }
 
 export const garagePage = new GaragePage();

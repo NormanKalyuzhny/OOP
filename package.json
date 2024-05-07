@@ -7,8 +7,8 @@
     "merge:regression:results": "npx mochawesome-merge \"reports/regression/*.json\" > reports/regression.json",
     "merge:smoke:results": "npx mochawesome-merge \"reports/smoke/*.json\" > reports/smoke.json"
   },
-
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "cypress": "^13.7.2",
     "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3",
