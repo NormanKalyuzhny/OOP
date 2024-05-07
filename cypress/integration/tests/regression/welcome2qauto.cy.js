@@ -2,7 +2,6 @@ import { fuelExpansesStep } from "../../steps/fuel_expenses - steps";
 import { garageSteps } from "../../steps/garage-steps";
 import { generalSteps } from "../../steps/general-steps";
 import { basePage } from "../../pages/BasePage";
-import { garagePage } from "../../pages/GaragePage";
 
 describe('Test qaauto', () => {
 
