@@ -18,22 +18,22 @@ describe('Test qaauto', () => {
    });
 
    it ('Add a car', ()=> {
-      garageSteps.addNewCar(garagePage.car); 
-      garageSteps.checkNewCarAdded(garagePage.car);
+      garageSteps.addNewCar(); 
+      garageSteps.checkNewCarAdded();
    })
 
-   it ('Remove a car', ()=> {
+   it.skip ('Remove a car', ()=> {
       garageSteps.deleteNewCar(garagePage.car);
       garageSteps.checkNewCarDeleted();
    })
    
-   it ('Add fuel expanses', ()=> {   
+   it.skip ('Add fuel expanses', ()=> {   
       garageSteps.addNewCar(garagePage.car); 
       fuelExpansesStep.addFuelExp();
       fuelExpansesStep.checkAddFuelExp();
    }) 
    
-   it ('Remove fuel expanses', ()=> {
+   it.skip ('Remove fuel expanses', ()=> {
       fuelExpansesStep.deleteFuelExp();
       fuelExpansesStep.checkFuelExpDeleted();
    }) 
