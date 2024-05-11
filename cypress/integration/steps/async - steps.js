@@ -50,6 +50,14 @@ class PromiseHandlerSteps {
             console.log('Array',response.data);
         });
       })
+
+    resPromiseAllCheck = allResponses => {
+        console.log('Promise.all with Arr',allResponses);
+    }
+
+    resPromiseRaceCheck = allResponses => {
+        console.log('Promise.race with Arr',allResponses);
+    }
 }
 
 const promiseHandlerSteps = new PromiseHandlerSteps()

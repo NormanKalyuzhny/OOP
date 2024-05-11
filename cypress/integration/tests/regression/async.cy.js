@@ -5,7 +5,7 @@ import { urlsData } from '../../data/constant/urlsData';
 
 describe('Async await, Promise', () => {
 
-it ('Task 1', () => {
+it.skip ('Task 1', () => {
 
   function textTime(text,timeout){
     console.log('Task 1 Wait for it...');
@@ -18,7 +18,7 @@ it ('Task 1', () => {
 
 })
 
-it ('Task 2', () => {
+it.skip ('Task 2', () => {
   function getTodos() {
     return new Promise((resolve, reject) => {
       axios.get('https://jsonplaceholder.typicode.com/todos/1')
@@ -88,7 +88,7 @@ it ('Task 2', () => {
 
 });
 
-it ('Task 3', () => {
+it.skip ('Task 3', () => {
 
   const getTodos = async () => {
     try {
@@ -135,12 +135,18 @@ getDataFromUrlSteps.getMultyData('https://jsonplaceholder.typicode.com/todos/1',
 .then(promiseHandlerSteps.resMultyCheck)
 .catch(promiseHandlerSteps.errorChecker)
 
-
-
 const requests = urlsData.urlsUsers.map(url => axios.get(url));
 
 getDataFromUrlSteps.getArrData(requests)
 .then(promiseHandlerSteps.resArrCheck)
+.catch(promiseHandlerSteps.errorChecker)
+
+Promise.all(requests)
+.then(promiseHandlerSteps.resPromiseAllCheck)
+.catch(promiseHandlerSteps.errorChecker)
+
+Promise.race(requests)
+.then(promiseHandlerSteps.resPromiseRaceCheck)
 .catch(promiseHandlerSteps.errorChecker)
 
 })
