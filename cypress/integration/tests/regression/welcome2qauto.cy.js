@@ -2,7 +2,6 @@ import { fuelExpansesStep } from "../../steps/fuel_expenses - steps";
 import { garageSteps } from "../../steps/garage-steps";
 import { generalSteps } from "../../steps/general-steps";
 import { basePage } from "../../pages/BasePage";
-import { garagePage } from "../../pages/GaragePage";
 
 describe('Test qaauto', () => {
 
@@ -22,18 +21,18 @@ describe('Test qaauto', () => {
       garageSteps.checkNewCarAdded();
    })
 
-   it.skip ('Remove a car', ()=> {
-      garageSteps.deleteNewCar(garagePage.car);
+   it ('Remove a car', ()=> {
+      garageSteps.deleteNewCar();
       garageSteps.checkNewCarDeleted();
    })
    
-   it.skip ('Add fuel expanses', ()=> {   
-      garageSteps.addNewCar(garagePage.car); 
+   it ('Add fuel expanses', ()=> {   
+      garageSteps.addNewCar(); 
       fuelExpansesStep.addFuelExp();
       fuelExpansesStep.checkAddFuelExp();
    }) 
    
-   it.skip ('Remove fuel expanses', ()=> {
+   it ('Remove fuel expanses', ()=> {
       fuelExpansesStep.deleteFuelExp();
       fuelExpansesStep.checkFuelExpDeleted();
    }) 
