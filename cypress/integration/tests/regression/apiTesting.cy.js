@@ -5,7 +5,6 @@ import { apiSignUp } from "../../Api/apiRequest";
 import { toolsUtil } from "../../Tools/all";
 import { fuelExpansesStep } from "../../steps/fuel_expenses - steps";
 
-
 describe('Test qaauto with Api', () => {
   
    before (() => {  
