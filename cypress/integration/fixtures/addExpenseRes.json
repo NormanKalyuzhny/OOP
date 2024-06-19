@@ -1,11 +1,11 @@
 {
   "status": "ok",
   "data": {
-    "carId": 119214,
-    "reportedAt": "2024-05-03",
+    "carId": 121590,
+    "reportedAt": "2024-06-19",
     "liters": 11,
-    "id": 30623,
-    "mileage": 111,
+    "id": 31959,
+    "mileage": 838,
     "totalCost": 11
   }
 }

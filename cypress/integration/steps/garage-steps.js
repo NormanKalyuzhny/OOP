@@ -6,7 +6,7 @@ class GarageSteps extends GeneralSteps{
 
     addNewCar(){
         garagePage.sidePanelElm.garageAddCarBtn().click()
-        cy.log('RND Car brand/model is: ',toolsUtil.rndCar.brand, toolsUtil.rndCar.model)
+        cy.log('RND Car brand/model is: ', toolsUtil.rndCar.brand, toolsUtil.rndCar.model)
         garagePage.sidePanelElm.carBrand().select(toolsUtil.rndCar.brand);   
         garagePage.sidePanelElm.carModel().select(toolsUtil.rndCar.model);
         garagePage.sidePanelElm.carMileage().type(toolsUtil.rndDigits);
