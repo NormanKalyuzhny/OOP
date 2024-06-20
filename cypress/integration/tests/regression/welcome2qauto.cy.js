@@ -6,13 +6,13 @@ import { basePage } from "../../pages/BasePage";
 describe('Test qaauto', () => {
 
    before (() => {
-      cy.visit('/');
+      cy.visit(Cypress.env("BASE_URL"));   
       basePage.generateAccount(); 
       cy.clearCookies();   
    });   
    
    beforeEach (() => {
-      cy.visit('/');    
+      cy.visit(Cypress.env("BASE_URL"));      
       generalSteps.login();
    });
 
