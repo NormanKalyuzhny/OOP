@@ -4,7 +4,7 @@ import { toolsUtil } from "../Tools/all";
 export function apiSignUp(){
     cy.request({
         method: 'POST',
-        url: 'api/auth/signup',
+        url: '/api/auth/signup',
         headers: {
            "accept": "text/plain",
            "Content-Type": "application/json"   
