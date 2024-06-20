@@ -1,15 +1,15 @@
 {
   "status": "ok",
   "data": {
-    "id": 121590,
-    "carBrandId": 4,
-    "carModelId": 18,
-    "initialMileage": 836,
-    "updatedMileageAt": "2024-06-19T16:52:06.228Z",
-    "carCreatedAt": "2024-06-19T16:52:06.228Z",
-    "mileage": 836,
-    "brand": "Porsche",
-    "model": "Panamera",
-    "logo": "porsche.png"
+    "id": 121652,
+    "carBrandId": 3,
+    "carModelId": 13,
+    "initialMileage": 68,
+    "updatedMileageAt": "2024-06-20T18:38:29.286Z",
+    "carCreatedAt": "2024-06-20T18:38:29.285Z",
+    "mileage": 68,
+    "brand": "Ford",
+    "model": "Fusion",
+    "logo": "ford.png"
   }
 }

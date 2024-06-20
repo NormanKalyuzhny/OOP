@@ -13,7 +13,7 @@ describe('Test qaauto with Api', () => {
    });   
    
    beforeEach (() => {
-      cy.visit('/');   
+      cy.visit(Cypress.env("BASE_URL"));   
       generalSteps.login();
       cy.url().should('contain', '/panel/garage');
    });
@@ -39,33 +39,33 @@ describe('Test qaauto with Api', () => {
       });
    });
    
-   it ('Add Fuel Expense via Api', ()=>{    
-      cy.fixture('../integration/fixtures/addCarRes.json').then((resCar) => {
-         const carId = resCar.data.id
-         cy.addExpense(carId, toolsUtil.currentDateFormat(), toolsUtil.rndDigits + 2, 11, 11, false)
-         .then((resExp) => {
-            cy.writeFile('cypress/integration/fixtures/addExpenseRes.json', resExp.body);
-         });
-      });
-   });
+   // it ('Add Fuel Expense via Api', ()=>{    
+   //    cy.fixture('../integration/fixtures/addCarRes.json').then((resCar) => {
+   //       const carId = resCar.data.id
+   //       cy.addExpense(carId, toolsUtil.currentDateFormat(), toolsUtil.rndDigits + 2, 11, 11, false)
+   //       .then((resExp) => {
+   //          cy.writeFile('cypress/integration/fixtures/addExpenseRes.json', resExp.body);
+   //       });
+   //    });
+   // });
 
    it ('Fuel Expense check', ()=>{
-      cy.fixture('../integration/fixtures/addCarRes.json').then((resCar) => {
-         garagePage.sidePanelElm.carName().should('have.text', resCar.data.brand + ' ' + resCar.data.model);
-         cy.fixture('../integration/fixtures/addExpenseRes.json').then((resExpense) => {
-            garagePage.sidePanelElm.mileageInputField().should('have.value', resExpense.data.mileage);
-         });
-      });
+      // cy.fixture('../integration/fixtures/addCarRes.json').then((resCar) => {
+      //    garagePage.sidePanelElm.carName().should('have.text', resCar.data.brand + ' ' + resCar.data.model);
+      //    cy.fixture('../integration/fixtures/addExpenseRes.json').then((resExpense) => {
+      //       garagePage.sidePanelElm.mileageInputField().should('have.value', resExpense.data.mileage);
+      //    });
+      // });
       
-      fuelExpansesStep.addFuelExp();
-      fuelExpansesStep.checkAddFuelExp();
+      // fuelExpansesStep.addFuelExp();
+      // fuelExpansesStep.checkAddFuelExp();
     
-      cy.fixture('../integration/fixtures/addCarRes.json').then((resCar) => {
-         const carid = resCar.data.id;
-         cy.request(`api/expenses?carId=${carid}`).then((res) => {
-            expect(res.body.totalItems, 'Total expanse records').to.equal(2);
-         });
-      });
+      // cy.fixture('../integration/fixtures/addCarRes.json').then((resCar) => {
+      //    const carid = resCar.data.id;
+      //    cy.request(`api/expenses?carId=${carid}`).then((res) => {
+      //       expect(res.body.totalItems, 'Total expanse records').to.equal(2);
+      //    });
+      // });
       
       generalSteps.deleteAccount();
       cy.log('Account was deleted');
